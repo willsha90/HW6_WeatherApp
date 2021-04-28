@@ -18,12 +18,15 @@ function getCityWeatherData(myCity, myForecastType) {
   // fetch('http://api.openweathermap.org/data/2.5/weather?q=Boston&appid=dbf5f0cf87ab9e0799c0fb6cd0b54ea4')
   //        http://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
+  
+
   fetch(myFetchString)
     .then(function (response) {
       return response.json()
     })
     .then(function (data) {
       if (myForecastType==="weather") {
+        addCity(data.name);  
         return displayWeather(data)
       } else {
         return displayForecast(data)
@@ -31,13 +34,28 @@ function getCityWeatherData(myCity, myForecastType) {
     });
 }
 
+
 function displayWeather(data) {
   console.log('in displayWeather');
   console.log(data);
-  cityTemp.innerHTML = data.main.temp
-  cityWind.innerHTML = data.wind.speed
-  cityHumidity.innerHTML = data.main.humidity
-  cityUV.innerHTML = "z"
+  cityTemp.innerHTML = data.main.temp;
+  cityWind.innerHTML = data.wind.speed;
+  cityHumidity.innerHTML = data.main.humidity;
+  // cityUV.innerHTML = "z"
+  const {lat,lon}=data.coord;
+  fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${myAPIId}`)
+  .then(res => res.json())
+  .then(data=>{
+    console.log(data);
+  const uvi = data.current.uvi;
+  var severity;
+  if (uvi<3)severity="low";
+  else if (uvi<6)severity="moderate";
+  else if (uvi<8)severity="high";
+  else if (uvi<11)severity="veryhigh";
+  else severity="extreme";
+  cityUV.innerHTML=`<span class="${severity}">${uvi}</span>`
+  });
 }
 
 function displayForecast(data) {
@@ -56,13 +74,43 @@ function displayForecast(data) {
 
 function handleClick(e) {
   var myCity = userCity.value
-  getCityWeatherData(myCity, 'weather')
-  getCityWeatherData(myCity, 'forecast')
+  getCityWeatherData(myCity, 'weather');
+  getCityWeatherData(myCity, 'forecast');
   // getCityWeatherData(myCity, 'forecast')
 }
 
+function handleSavedCityClick(e){
+const myCity = e.target.textContent;
+getCityWeatherData(myCity, 'weather');
+getCityWeatherData(myCity, 'forecast');
+}
+
+// local storage 
+function getCities(){
+  const cities=localStorage.getItem("cities");
+  if(cities){return JSON.parse(cities)
+  }
+}
+
+function addCity(city){
+  var cities = getCities();
+  // if cities do not exist, cities return as empty
+  if (!cities) cities=[];
+  cities.push(city);
+  localStorage.setItem("cities", JSON.stringify (cities));
+}
 
 //*****ON PAGE LOAD  *************
 
 //need to check to see if anything is in local storage and populate user city
 btnSubmit.addEventListener("click", handleClick)
+
+const cities = getCities()
+if (cities){
+for (let city of cities){
+  const btn= document.createElement("button");
+  btn.textContent=city;
+  document.querySelector("#savedCities").append(btn);
+  btn.addEventListener("click", handleSavedCityClick);
+}
+}
