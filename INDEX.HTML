@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    
 
 </head>
 
@@ -24,21 +25,29 @@
             </form>
         </aside>
     </div>
-
-    <div>
+<main>
+    <div class="usercity" >
         <h2>City</h2>
         <ul>
-            <li>Temp: </li>
-            <li>Wind: </li>
-            <li>Humidity: </li>
-            <li>UV Index: </li>
+            <li>Temp: <span id="cityTemp"></span> </li>
+            <li>Wind: <span id="cityWind"></span> </li>
+            <li>Humidity: <span id="cityHumidity"></span> </li>
+            <li>UV Index:  <span id="cityUV"></span></li>
         </ul>
     </div>
-    <div>
+    <div class="usercityforecast">
         <h2>5-Day Forecast</h2>
-        <ol>
+        <ol class="five-day">
+            <li class= "forecastCard">
+                <!-- <ul class="forecastCard">Date-1
+
+                    <li>Temp: </li>
+                    <li>Wind: </li>
+                    <li>Humidity: </li>
+                </ul> -->
+            </li>
             <li>
-                <ul>Date-1
+                <ul  class="forecastCard">Date-2
 
                     <li>Temp: </li>
                     <li>Wind: </li>
@@ -46,7 +55,7 @@
                 </ul>
             </li>
             <li>
-                <ul>Date-2
+                <ul class="forecastCard">Date-3
 
                     <li>Temp: </li>
                     <li>Wind: </li>
@@ -54,22 +63,14 @@
                 </ul>
             </li>
             <li>
-                <ul>Date-3
-
-                    <li>Temp: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul>
-            </li>
-            <li>
-                <ul>Date-4
+                <ul class="forecastCard">Date-4
 
                     <li>Temp:: </li>
                     <li>Wind: </li>
                     <li>Humidity: </li>
                 </ul>
             </li>
-                <ul>Date-5
+                <ul class="forecastCard">Date-5
 
                     <li>Temp: </li>
                     <li>Wind: </li>
@@ -80,7 +81,7 @@
 
             </ul>
     </div>
-
+</main>
 <script src="javascript.js"> </script>
 </body>
 
