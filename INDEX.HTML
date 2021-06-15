@@ -1,88 +1,39 @@
-  
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    
-
-</head>
-
-<body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
-
-    <div>
-        <aside>
-            <form>
-                <label for="city-search">Search for a City</label>
-                <input id="city-search" type="search" name="user-search">
-                <button class="btn-user-city" type="button">City</button>
-            </form>
-        </aside>
-    </div>
-    <div id="savedCities"></div>
-    <main>
-    <div class="usercity" >
-        <h2>City</h2>
-        <ul>
-            <li>Temp: <span id="cityTemp"></span> </li>
-            <li>Wind: <span id="cityWind"></span> </li>
-            <li>Humidity: <span id="cityHumidity"></span> </li>
-            <li>UV Index:  <span id="cityUV"></span></li>
-        </ul>
-    </div>
-    <div class="usercityforecast">
-        <h2>5-Day Forecast</h2>
-        <ol class="five-day">
-            <li class= "forecastCard">
-                <!-- <ul class="forecastCard">Date-1
-                    <li>Temp: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul> -->
-            </li>
-            <li>
-                <ul  class="forecastCard">Date-2
-
-                    <li>Temp: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul>
-            </li> 
-            <li>
-                <ul class="forecastCard">Date-3
-
-                    <li>Temp: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul>
-            </li>
-            <li>
-                <ul class="forecastCard">Date-4
-
-                    <li>Temp:: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul>
-            </li>
-                <ul class="forecastCard">Date-5
-
-                    <li>Temp: </li>
-                    <li>Wind: </li>
-                    <li>Humidity: </li>
-                </ul>
-            </li>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Weather Dashboard</title>
+      <link rel="stylesheet" href="style.css">
+      <script defer src="javascript.js"> </script>
 
 
-            </ul>
-    </div>
-</main>
-<script src="javascript.js"> </script>
-</body>
-</html>
+  </head>
+
+  <body>
+      <header>
+          <h1>Weather Dashboard</h1>
+      </header>
+
+      <aside>
+          <form>
+              <label for="city-search">Search for a City</label>
+              <input id="city-search" type="search" name="user-search">
+              <button>Get Weather</button>
+          </form>
+          <nav id="savedCities"></nav>
+      </aside>
+
+      <main>
+          <section>
+
+          </section>
+          <section>
+
+          </section>
+      </main>
+  </body>
+
+  </html>
