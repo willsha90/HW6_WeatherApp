@@ -1,27 +1,75 @@
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
-  
+    font-family: sans-serif;
+    text-align: center;
 }
 
-h1 {
-    text-align: center;
+header {
     background-color:blue;
     color: white;
+    padding: 5px;
+    margin-bottom: 50px;
+    border-top: 10px solid navy;
+}
+aside, main {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
 }
 
-.five-day {
-    list-style-type: none;
-    color: white;
+aside {
+    width: 250px;
+    margin-right: 25px;
+    }
+aside * {
+    display: block;
+    width: 100%;
+}
+aside input {
+    font-size: 1.5em;
+    padding: 4px 8px;
+}
+aside button {
+    font-size: 1.25em;
+    padding: 5px;
+    cursor: pointer;
+}
+aside form button {
     background-color: navy;
-    display: flex;
-    justify-content: space-evenly;
+    color: white;
+    margin-bottom: 10px;
+}
+main {
+    width: 60%;
+    min-width: 350px;
+}
+main section:first-of-type {
+    font-size: larger;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid navy;
+}
+main div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    padding: 10px;
+    background-color: navy;
+    color: white;
+    border-radius: 15px;
+
+}
+h2 {
+    margin-top: 0;
+}
+h4 {
+    margin: 0;
 }
 
-ul {
-    list-style-type: none;
+p {
+    margin: 0.25em;
 }
+
 .low{
     background-color:green;
 }
@@ -37,3 +85,4 @@ ul {
 .extreme{
     background-color:purple;
 }
+

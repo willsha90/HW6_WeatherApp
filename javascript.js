@@ -121,6 +121,7 @@ function addCity(city){
   if (!cities.includes(city)){
     cities.push(city);
     localStorage.setItem("cities", JSON.stringify (cities));
+    addCityToNav(city);
   }
 }
 
@@ -129,13 +130,16 @@ function addCity(city){
 //need to check to see if anything is in local storage and populate user city
 document.querySelector("form").addEventListener("submit", handleSubmit)
 
-const cities = getCities()
-if (cities){
-for (let city of cities){
+function addCityToNav(city){
   const btn= document.createElement("button");
   btn.textContent=city;
   document.querySelector("#savedCities").append(btn);
   btn.addEventListener("click", handleSavedCityClick);
+}
+  const cities = getCities()
+if (cities){
+for (let city of cities){
+    addCityToNav(city)
 }
 }
 
